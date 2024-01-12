@@ -1,0 +1,776 @@
+@use "sass:math";
+@use "../../../common/stylesheets/config";
+
+/* ------------------------------------------- SASS Information
+ Name:      _index.scss
+----------------------------------------------------------- */
+
+
+
+.page-index {
+    .top-fv{
+        padding: 1em 0 3em;
+        overflow: hidden;
+        @include config.mq(sm){
+            padding: 3em 0;
+        }
+        @include config.mq(md){
+            padding: 3em 0;
+        }
+        @include config.mq(lg){
+            padding: 3em 0;
+        }
+    }
+
+    .top-fv_list{
+        display: flex;
+        gap: 1.8em 10%;
+        flex-direction: column;
+        position: relative;
+        margin: 0 calc(50% - 50vw);
+        width: 100vw;
+        @include config.mq(sm){
+            flex-direction: row;
+            margin: 0;
+            width: auto;
+        }
+        @include config.mq(md){
+            flex-direction: row;
+            margin: 0;
+            width: auto;
+        }
+        @include config.mq(lg){
+            flex-direction: row;
+            margin: 0;
+            width: auto;
+        }
+        >li{
+            width: 55%;
+            overflow: hidden;
+            &::after{
+                content: '';
+                background-color: config.$white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+            @include config.mq(sm){
+                width: calc(50% - 5%);
+            }
+            @include config.mq(md){
+                width: calc(50% - 5%);
+            }
+            @include config.mq(lg){
+                width: calc(50% - 5%);
+            }
+
+            img{
+                display: block;
+                object-fit: cover;
+                aspect-ratio: 1/1;
+                width: 100%;
+            }
+            &:first-of-type{
+                position: relative;
+                &::after{
+                    transition: transform 1.3s .6s;
+                }
+            }
+            &:last-of-type{
+                position: absolute;
+                right: 0;
+                bottom: -25%;
+                z-index: -10;
+                @include config.mq(sm){
+                    margin-top: 3em;
+                    position: static;
+                }
+                &::after{
+                    transition: transform 1.3s 1.2s;
+                }
+            }
+
+            &.is-load{
+                &:first-of-type{
+                    &::after{
+                        transform: translateY(-100%);
+                    }
+                }
+                &:last-of-type{
+                    &::after{
+                        transform: translateX(100%);
+                    }
+                }
+            }
+        }
+    }
+
+
+.top-about{
+    padding: 6em 0;
+    @include config.mq(md){
+        padding: 8em 0 10em;
+    }
+    .about_wrapper{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2em 8%;
+        @include config.mq(sm){
+            flex-direction: row;
+            align-items: center;
+        }
+        @include config.mq(md){
+            flex-direction: row;
+            align-items: center;
+        }
+        @include config.mq(lg){
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    .about_img{
+        max-width: 450px;
+        margin: 0 auto;
+        @include config.mq(sm){
+            max-width: none;
+            width: calc(60% - 8%);
+        }
+        @include config.mq(md){
+            max-width: none;
+            width: calc(60% - 8%);
+        }
+        @include config.mq(lg){
+            max-width: none;
+            width: calc(60% - 8%);
+        }
+        
+    }
+
+    .about_info{
+        width: 100%;
+        @include config.mq(sm){
+            width: 50%;
+        }
+        @include config.mq(md){
+            width: 50%;
+        }
+        @include config.mq(lg){
+            width: 50%;
+        }
+
+
+    }
+    .about_txt{
+        // @include confih.scroll-fadeUp(.5);
+        >p{
+            font-size: .92em;
+            line-height: 1.7;
+            letter-spacing: .8px;
+            font-feature-settings: "palt";
+            &.is-small{
+                font-size: .83em;
+                padding: .3em 0;
+            }
+        }
+
+    }
+}
+
+
+.top-work{
+    background-color: config.$beige;
+    padding: 6em 0 8em!important;
+    height: 95vh;
+    overflow: hidden;
+    @include config.mq(md){
+        height: 82vh;
+    }
+    @include config.mq(lg){
+        height: 82vh;
+    }
+    
+    .top-work_container{
+        width: 100%;
+        position: relative;
+        height: 500px;
+    }
+
+    .top-work_list{
+        display: flex;
+        gap: 0 2em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include config.mq(md){
+            gap: 0 3em;
+        }
+        @include config.mq(lg){
+            gap: 0 3em;
+        }
+    }
+    .top-work_item{
+        width: 350px;
+        aspect-ratio: 4/3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a{
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .work_item_img{
+        @include config.mq(md){
+            overflow: hidden;
+        }
+        @include config.mq(lg){
+            overflow: hidden;
+        }
+        
+        img{
+            display: block;
+            width: 100%;
+            aspect-ratio: 6.5/4;
+            object-fit: contain;
+            object-position: center;
+            background: config.$white;
+            @include config.mq(md){
+                transition: transform .3s;
+                &:is(.top-work_item:hover *){
+                    transform: scale(1.1);
+                }
+            }
+            @include config.mq(lg){
+                transition: transform .3s;
+                &:is(.top-work_item:hover *){
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .work_item_ttl{
+        letter-spacing: 1px;
+        padding: .5em 0 .4em;
+        display: grid;
+        container-type: inline-size;
+        white-space: nowrap;
+        overflow: hidden;
+        font-weight: 800;
+        >span{
+            &:is(.top-work_item:hover *){
+                animation: marquee 2s linear both;
+            }
+        }
+
+        @keyframes marquee {
+            100%{
+                translate: calc(100cqw - 100%) 0 0;
+            }
+            
+        }
+    }
+}
+
+
+.top-skill{
+    padding: 6em 0 8em;
+    @include config.mq(md){
+        padding: 8em 0 10em;
+    }
+    @include config.mq(lg){
+        padding: 8em 0 10em;
+    }
+    
+    .skill_wrapper{
+        display: flex;
+        gap: 5em 6%;
+        flex-direction: column;
+        align-items: flex-start;
+        @include config.mq(md){
+            flex-direction: row;
+        }
+        @include config.mq(lg){
+            flex-direction: row;
+        }
+    }
+
+
+    .skill_nav{
+        background-color: config.$l-brown;
+        color: config.$white;
+        width: 100%;
+        padding: 2em;
+        @include config.mq(md){
+            padding: 3em 4%;
+            width: 24%;
+            position: sticky;
+            top: 60px;
+            bottom: 10em;
+        }
+        @include config.mq(lg){
+            padding: 3em 4%;
+            width: 24%;
+            position: sticky;
+            top: 60px;
+            bottom: 10em;
+        }
+    }
+
+    .skill_nav_ttl{
+        display: none;
+        font-size: 1.7em;
+        margin-bottom: .7em;
+        font-weight: 800;
+        @include config.mq(md){
+            display: block;
+        }
+        @include config.mq(lg){
+            display: block;
+        }
+    }
+
+    .skill_nav_list{
+        display: flex;
+        gap: 1em 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include config.mq(md){
+            gap: 0;
+            flex-direction: column;
+            border-left: 2px solid rgba(config.$white, .4);
+        }
+        @include config.mq(lg){
+            gap: 0;
+            flex-direction: column;
+            border-left: 2px solid rgba(config.$white, .4);
+        }
+        >li{
+            width: calc(50% - .5em);
+            @include config.mq(md){
+                width: 100%;
+            }
+            @include config.mq(lg){
+                width: 100%;
+            }
+
+        }
+        a{
+            text-align: center;
+            display: block;
+            font-weight: 800;
+            color: config.$white;
+            @include config.mq(md){
+                padding: 1em 0 1em 1.5em;
+                opacity: .5;
+                text-align: left;
+                &.is-active{
+                    opacity: 1;
+                    font-weight: 800;
+                    border-left: 2px solid config.$white;
+                    transform: translateX(-2px);
+                }
+            }
+            @include config.mq(lg){
+                padding: 1em 0 1em 1.5em;
+                opacity: .5;
+                text-align: left;
+                &.is-active{
+                    opacity: 1;
+                    font-weight: 800;
+                    border-left: 2px solid config.$white;
+                    transform: translateX(-2px);
+                }
+            }
+
+        }
+    }
+
+    .skill_info{
+        @include config.mq(md){
+            width: calc(76% - 6%);
+        }
+        @include config.mq(lg){
+            width: calc(76% - 6%);
+        }
+    }
+
+
+    .skill_info_list{
+        display: flex;
+        flex-wrap: wrap;
+        @include config.mq(sm){
+            justify-content: center;
+            gap: 1em 0;
+            margin-bottom: 7em;
+        }
+        @include config.mq(md){
+            justify-content: center;
+            gap: 1em 0;
+            margin-bottom: 7em;
+        }
+        @include config.mq(lg){
+            justify-content: center;
+            gap: 1em 0;
+            margin-bottom: 7em;
+        }
+        >li{
+            width: 100%;
+            border-radius: 16px;
+            padding: 3em 2em 5em;
+            counter-increment: skill-number;
+            text-align: center;
+            transition: transform .6s, opacity .6s;
+            opacity: 0;
+            @include config.mq(sm){
+                width: calc(50% + .58em);
+                padding: 3em 6%;
+            }
+            @include config.mq(md){
+                width: calc(50% + .58em);
+                padding: 3em 6%;
+            }
+            @include config.mq(lg){
+                width: calc(50% + .58em);
+                padding: 3em 6%;
+            }
+
+            &:nth-of-type(odd){
+                background: config.$ll-gray;
+                @include config.mq(sm){
+                    transition: transform .6s, opacity .6s;
+                    transform: translateX(-.6em);
+                    margin-left: -.6em;
+                }
+                @include config.mq(md){
+                    transition: transform .6s, opacity .6s;
+                    transform: translateX(-.6em);
+                    margin-left: -.6em;
+                }
+                @include config.mq(lg){
+                    transition: transform .6s, opacity .6s;
+                    transform: translateX(-.6em);
+                    margin-left: -.6em;
+                }
+            }
+            &:nth-of-type(even){
+                background-color: config.$l-gray;
+                @include config.mq(sm){
+                    transition: transform .6s .5s, opacity .6s .5s;
+                    transform: translateX(.6em);
+                    margin-right: -.6em;
+                }
+                @include config.mq(md){
+                    transition: transform .6s .5s, opacity .6s .5s;
+                    transform: translateX(.6em);
+                    margin-right: -.6em;
+                }
+                @include config.mq(lg){
+                    transition: transform .6s .5s, opacity .6s .5s;
+                    transform: translateX(.6em);
+                    margin-right: -.6em;
+                }
+            }
+
+            &:nth-of-type(2n+1):last-of-type{
+                @include config.mq(sm){
+                    transition:transform .6s, opacity .6s;
+                    transform: translate(0, 2.5em);
+                }
+                @include config.mq(md){
+                    transition:transform .6s, opacity .6s;
+                    transform: translate(0, 2.5em);
+                }
+                @include config.mq(lg){
+                    transition:transform .6s, opacity .6s;
+                    transform: translate(0, 2.5em);
+                }
+            }
+            
+            >span{
+                display: inline-block;
+                font-size: 2.4rem;
+                font-weight: 900;
+                letter-spacing: 2px;
+                background-color: config.$m-black;
+                color: config.$white;
+                line-height: 1.2;
+                padding: 0 .3em;
+                margin-bottom: 1.7em;
+                // @include fontRaleway;
+                &::after{
+                    content: counter(skill-number, decimal-leading-zero);
+                }
+            }
+
+            img{
+                display: inline-block;
+                height: 130px;
+                width: 100%;
+                object-fit: contain;
+                max-width: 160px;
+            }
+
+            // クラス付与後
+            &.is-inview{
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}){
+                        transform: translateY(-#{($i+1)*1.5 }em);
+                        opacity: 1;
+                        @include config.mq(sm){
+                            transform: translateY(0);
+                        }
+                        @include config.mq(md){
+                            transform: translateY(0);
+                        }
+                        @include config.mq(lg){
+                            transform: translateY(0);
+                        }
+                    }
+                }
+                &:nth-of-type(odd){
+                    @include config.mq(sm){
+                        transform: translateX(.6em);
+                        opacity: 1;
+                    }
+                    @include config.mq(md){
+                        transform: translateX(.6em);
+                        opacity: 1;
+                    }
+                    @include config.mq(lg){
+                        transform: translateX(.6em);
+                        opacity: 1;
+                    }
+                }
+                &:nth-of-type(even){
+                    @include config.mq(sm){
+                        transform: translateX(-.6em);
+                        opacity: 1;
+                    }
+                    @include config.mq(md){
+                        transform: translateX(-.6em);
+                        opacity: 1;
+                    }
+                    @include config.mq(lg){
+                        transform: translateX(-.6em);
+                        opacity: 1;
+                    }
+                }
+
+                &:nth-of-type(2n+1):last-of-type{
+                    @include config.mq(sm){
+                        transform: translate(0,0);
+                        opacity: 1;
+                    }
+                    @include config.mq(md){
+                        transform: translate(0,0);
+                        opacity: 1;
+                    }
+                    @include config.mq(lg){
+                        transform: translate(0,0);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .info_list_ttl{
+        font-size: 1.2em;
+        margin-bottom: .8em;
+        letter-spacing: 2px;
+        font-weight: 800;
+    }
+
+    .skill_info_img{
+        margin-bottom: 1.2em;
+    }
+
+    .skill_info_ttl{
+        margin-bottom: 3.5em;
+        color: config.$m-black;
+        padding: 1.2em 1.5em;
+        border: 2.5px solid config.$m-black;
+        font-size: 1.3em;
+        display: flex;
+        flex-direction: column;
+        gap: .3em;
+        font-weight: 800;
+        @include config.mq(sm){
+            margin-bottom: 1.5em; 
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            &:first-of-type{
+                margin: 1.5em 0; 
+            }
+        }
+        @include config.mq(md){
+            margin-bottom: 1.5em; 
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            &:first-of-type{
+                margin: 1.5em 0; 
+            }
+        }
+        @include config.mq(lg){
+            margin-bottom: 1.5em; 
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            &:first-of-type{
+                margin: 1.5em 0; 
+            }
+        }
+
+        >span:not(.is-large){
+            font-size: .65em;
+            letter-spacing: 1px;
+            display: inline-block;
+            line-height: 1;
+            &::before{
+                content: '';
+                display: inline-block;
+                width: 2em;
+                height: 2px;
+                background-color: config.$m-black;
+                margin-right: .7em;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .is-large{
+        display: inline-block;
+        position: relative;
+        line-height: 1.2;
+        letter-spacing: 4px;
+        &::after{
+            @include config.mq(sm){
+                content: '';
+                position: absolute;
+                top: -1.2em;
+                right: -1.5em;
+                display: inline-block;
+                width: 2.6px;
+                height: calc(100% + 1.2em);
+                background-color: config.$m-black;
+            }
+            @include config.mq(md){
+                content: '';
+                position: absolute;
+                top: -1.2em;
+                right: -1.5em;
+                display: inline-block;
+                width: 2.6px;
+                height: calc(100% + 1.2em);
+                background-color: config.$m-black;
+            }
+            @include config.mq(lg){
+                content: '';
+                position: absolute;
+                top: -1.2em;
+                right: -1.5em;
+                display: inline-block;
+                width: 2.6px;
+                height: calc(100% + 1.2em);
+                background-color: config.$m-black;
+            }
+        }
+    }
+
+    .info_list_txt{
+        text-align: left;
+        letter-spacing: 1px;
+        line-height: 1.6;
+        font-size: .95em;
+    }
+}
+
+
+
+
+
+
+.top-contact{
+    position: relative;
+    margin-bottom: 15em;
+    .swiper-wrapper {
+        transition-timing-function: linear;
+    }
+
+    picture{
+        height: 100%;
+    }
+
+    .swiper-slide{
+        height: 100%;
+        img{
+            display: block;
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    
+
+    .top-contact_box{
+        background-color: rgba(config.$m-black, .93);
+        display: inline-block;
+        padding: 3.2em 1em;
+        min-width: 300px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%); 
+        z-index: 10;
+        >p{
+            color: config.$white;
+            font-size: 1.1em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 1.3em;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+        }
+
+        .btn{
+            background-color: config.$white;
+            color: config.$m-black;
+            display: block;
+            max-width: 300px;
+            margin: 0 auto;
+            border: 2px solid config.$m-black;
+            @include config.mq(md){
+                transition: background-color .3s;
+                &:hover{
+                    background-color: transparent;
+                    color: config.$white;
+                    border: 2px solid config.$white;
+                }
+            }
+            @include config.mq(lg){
+                transition: background-color .3s;
+                &:hover{
+                    background-color: transparent;
+                    color: config.$white;
+                    border: 2px solid config.$white;
+                }
+            }
+        }
+    }
+
+}
+
+}
+
+

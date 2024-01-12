@@ -1,0 +1,38 @@
+@use "sass:math";
+@use "../../../common/stylesheets/config";
+
+/* ------------------------------------------- SASS Information
+ Name:      partials/_footer.scss
+----------------------------------------------------------- */
+#section-footer {
+    text-align: center;
+    .footer_logo{
+        padding: 1.5em 0;
+        border-bottom: 1px solid config.$m-black;
+        margin-bottom: 1.5em;
+        font-size: 1.5em;
+        font-weight: 900;
+        letter-spacing: -1px;
+        img{
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 10px;
+        }
+    }
+    .footer_cp{
+        padding-bottom: 2em;
+        font-size: .85em;
+        letter-spacing: 1px;
+        >span{
+            display: inline-block;
+            margin-right: .3em;
+        }
+    }
+
+    @include config.RESPONSIVE('PC', config.$MIN_WIDTH) {
+
+    }
+    @include config.RESPONSIVE('SP', config.$MIN_WIDTH) {
+
+    }
+}

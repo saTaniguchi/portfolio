@@ -1,0 +1,377 @@
+---
+layout: pc
+RESPONSIVE: true
+REDIRECT: false
+
+BODY_CLASS: index
+ADD_STYLES:
+  - https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css
+ADD_SCRIPTS_HEADER:
+  - https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js
+ADD_SCRIPTS_FOOTER:
+  - 
+
+LANGUAGE: ja
+NAMESPACE: website
+META_CHARSET: UTF-8
+META_ROBOTS: index,follow
+META_VIEWPORT: width=device-width,initial-scale=1,minimum-scale=1,shrink-to-fit=no,viewport-fit=cover
+META_TITLE: これはタイトルです
+META_SHARE_TITLE:
+META_KEYWORDS: これはキーワードです
+META_DESCRIPTION: これはディスクリプションです
+META_SHARE_DESCRIPTION:
+META_AUTHOR:
+META_COPYRIGHT:
+META_APPLE_ICON: favicon.png
+META_ICON: favicon.png
+META_XHTML_ICON: favicon.ico
+META_FACEBOOK: true
+META_FACEBOOK_IMAGE: ogp_image.png
+META_FACEBOOK_LOCALE: ja_JP
+META_FACEBOOK_ID:
+META_TWITTER: true
+META_TWITTER_CARD: summary_large_image
+META_TWITTER_ACCOUNT:
+META_TWITTER_APP_ANDROID:
+META_TWITTER_APP_IPAD:
+META_TWITTER_APP_IPHONE:
+META_GOOGLE: false
+META_WINDOWS: false
+META_WINDOWS_IMAGE: tile_image.png
+META_WINDOWS_COLOR: #000000
+META_OLD_BROWSER: false
+META_PWA_MODE: false
+---
+
+<main id="section-contents">
+    <article>
+        <section id="top-fv" class="top-fv">
+            <div class="lg-container">
+                <ul class="top-fv_list">
+                    <li>
+                        <picture>
+                            <source srcset="{{ ASSETS_DIR.PC }}images/index/top01.jpg" />
+                            <img src="{{ ASSETS_DIR.PC }}images/index/top01.jpg" alt="" width="340" height="340"/>
+                        </picture>
+
+                            {{!-- src="{{ ASSETS_DIR.PC }}/top/top01.jpg" 
+                            alt=""
+                            width="340" 
+                            height="340"
+                            format="webp"
+                            legacy-format="jpeg"
+                        /> --}}
+                    </li>
+                    <li>
+                        <picture>
+                            <source srcset="{{ ASSETS_DIR.PC }}images/index/top02.jpg" />
+                            <img src="{{ ASSETS_DIR.PC }}images/index/top02.jpg" alt="" width="340" height="340"/>
+                        </picture>
+                        {{!-- <NuxtPicture 
+                            src="{{ ASSETS_DIR.PC }}images/index/top02.jpg" 
+                            alt="" 
+                            width="340" 
+                            height="340"
+                            format="webp"
+                            legacy-format="jpeg"
+                        /> --}}
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="top-about" class="top-about">
+            <div class="lg-container">
+                <div class="about_wrapper">
+                    <div class="about_img">
+
+                        <picture>
+                            <source srcset="{{ ASSETS_DIR.PC }}images/index/about.jpg" />
+                            <img src="{{ ASSETS_DIR.PC }}images/index/about.jpg" alt="" decoding="async"/>
+                        </picture>
+                    </div>
+                    <div class="about_info">
+                        <div class="common-ttl_box">
+                            <h2 class="common-ttl js-io js-span-wrap-text" ref="isTarget">About
+                            </h2>
+                            <span class="js-io">自己紹介</span>
+                        </div>
+                        <div class="about_txt js-io">
+                            <p>はじめまして。谷口と申します。</p>
+                            <p class="mb1">HP制作を中心にHTMLコーダーとしてキャリアをスタートして3年程になります。</p>
+                            <p class="mb1">職業訓練校でWEB制作について半年間学習後、ホームページなどWEB制作携わる会社に就職。主にコーディング業務に従事し、ホームページ制作やLP制作、またデザイン制作の案件に携わってきました。</p>
+                            <p>現在では更なるスキルアップを求めて、これまで学んだ知識やスキルを活かして転職活動中です。</p>
+                            <p class="is-small">（2023年10月更新）</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="top-work" class="top-work">
+            <div class="lg-container">
+                <div class="common-ttl_box">
+                    <h2 class="common-ttl js-span-wrap-text js-io">WORKS</h2>
+                    <span class="js-io">制作実績</span>
+                </div>
+                    <div class="top-work_container">
+                        <ul id="topWorkList" class="top-work_list">
+                                {{!-- {{#each data}}
+                                    <li class="top-work_item">
+                                        <a href="">
+                                            <div class="work_item_img">
+                                                <img
+                                                    src="work.img.url"
+                                                    alt=""
+                                                    decoding="async"
+                                                />
+                                            </div>
+                                            <h3 class="work_item_ttl">{{title}}</h3>
+                                        </a>
+                                    </li>
+                                {{/each}} --}}
+    
+                        </ul>
+
+                        {{!-- <script>
+                            const { createClient } = microcms;
+
+                            const client = createClient({
+                            serviceDomain: 'myportfolio2107', // service-domain は XXXX.microcms.io の XXXX 部分
+                            apiKey: 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
+                            })
+                            client.get({ endpoint: 'work'}).then((res) => {
+                            document.querySelector('.top-work_item').textContent = res.text
+                            })
+                        </script> --}}
+
+                        {{!-- <ul class="top-work_list">
+                            <li class="top-work_item" v-for="work in data.contents" :key="work.id">
+                                <a href="`${work.id}`">
+                                    <div class="work_item_img">
+                                        <img
+                                            provider="imgix" 
+                                            :src="work.img.url"
+                                            alt=""
+                                            decoding="async"
+                                            format="webp"
+                                        />
+                                    </div>
+                                    <h3 class="work_item_ttl">{{ work.title }}</h3>
+                                </a>
+                            </li> --}}
+                        </ul>
+                    </div>
+            </div>
+        </section>
+
+        <section id="top-skill" class="top-skill">
+            <div class="xl-container">
+                <div class="common-ttl_box">
+                    <h2 class="common-ttl js-span-wrap-text js-io">SKILL</h2>
+                    <span class="js-io">扱うスキル</span>
+                </div>
+                <div class="skill_wrapper">
+                    <nav class="skill_nav">
+                        <h3 class="skill_nav_ttl">SKILL</h3>
+                        <ol id="indexList" class="skill_nav_list">
+                            <li><a href="#skill_info_cording">コーディング</a></li> 
+                            <li><a href="#skill_info_design">デザイン</a></li>
+                            <li><a href="#skill_info_develop">開発環境</a></li>
+                            <li><a href="#skill_info_others">その他スキル</a></li>
+                        </ol>
+                    </nav>
+                    <div class="skill_info">
+                        <div id="skill_info_cording" class="skill_info_box">
+                            <h3 class="skill_info_ttl"><span class="is-large">コーディング</span><span>SKILL</span></h3>
+                            <ul class="skill_info_list">
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-html5.svg" alt="html5" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">HTML5</h4>
+                                    <p class="info_list_txt">
+                                        セマンティックな記述を意識し、WAI-ARIAの記述にも取り組むなどアクセシビリティやユーザビリティを含めたマークアップを心掛けています。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-css3.svg" alt="css3" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">CSS3</h4>
+                                    <p class="info_list_txt">DartSassを使用。コードの再利用を意識して記述を行っています。
+                                        <br>クラス設計の知見もあり、ファイルの構成規則や命名規則も学習しています。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-js.svg" alt="JavaScript" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">JavaScript</h4>
+                                    <p class="info_list_txt">ES6に基づいて、基礎的な実装（クリックイベントやループなどDOM操作で使用する関数）が可能です。
+                                        <br>jQueryの記法やライブラリの実装も対応できます。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-php.svg" alt="PHP" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">PHP(WordPress)</h4>
+                                    <p class="info_list_txt">WordPressを使った制作が可能で、オリジナルテーマの作成やカスタマイズを経験しました。<br>
+                                        ローカルで作業する場合は、MAMPを使用して検証しています。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-vue.svg" alt="vue/Nuxt" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">Vue.js</h4>
+                                    <p class="info_list_txt">Vue3のバージョンで日々学習中です。現時点では素のJavaScriptやjQueryで記述していたコードをVueで置き換える程度で使用可能です。<br>
+                                    またNuxt3も併せて学習中です。（このポートフォリオで使用）</p>
+                                </li>
+                            </ul>
+                        </div>                                
+                        <div id="skill_info_design" class="skill_info_box">
+                            <h3 class="skill_info_ttl"><span class="is-large">デザイン</span><span>SKILL</span></h3>
+                            <ul class="skill_info_list">
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-ai.svg" alt="Illustrator" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">Illustrator</h4>
+                                    <p class="info_list_txt">
+                                        ソフトの基本操作の知識を有しています。<br>
+                                        これまで、バナーの作成・デザインカンプ作成・SVGなど画像書き出し・地図イラスト作成などに使用してきました。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-mockup.svg" alt="デザインカンプ作成ツール" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">デザインカンプ作成ツール</h4>
+                                    <p class="info_list_txt">これまでは主にAdobe XDを使用してデザインカンプの作成やデザイン確認（数値の確認、画像書き出しなど）を行ってきました。<br>
+                                        その他、Figmaは学習中で、基礎的な操作を把握しています。
+                                    </p>
+                                </li>
+
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-ps.svg" alt="Photoshop" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">Photoshop</h4>
+                                    <p class="info_list_txt">
+                                        ソフトの基本操作の知識を有しています。<br>
+                                        これまで、写真のレタッチ（色調調整や消しゴムツールの使用）・白抜き作業などに対応可能です。
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>                                
+                        <div id="skill_info_develop" class="skill_info_box">
+                            <h3 class="skill_info_ttl"><span class="is-large">開発環境</span><span>SKILL</span></h3>
+                            <ul class="skill_info_list">
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-editor.svg" alt="テキストエディタ" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">テキストエディタ</h4>
+                                    <p class="info_list_txt">
+                                        現在は主にVSCodeを使用してコードを記述しています。<br>
+                                        その他、Adobe Dreamweaberも使用したことがあります。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-build.svg" alt="ビルドツール" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">ビルドツール</h4>
+                                    <p class="info_list_txt">
+                                        これまでは主にGulp4を使用して、Sass・画像・Javascriptのコンパイル環境を導入していました。<br>
+                                        その他に、WebPackも使用可能。Viteも現在学習中です。
+                                    </p>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-git.svg" alt="Git" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">Git</h4>
+                                    <p class="info_list_txt">
+                                        Gitを使用したソースコードの管理の基礎的な知見があります。<br>
+                                        ステージングエリア・コミット文・リモートリポジトリへの追加作業が可能です。<br>
+                                        ブランチ作業やその他についてUdemyを使用し、現在習得中です。
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>         
+
+                        <div id="skill_info_others" class="skill_info_box">
+                            <h3 class="skill_info_ttl"><span class="is-large">その他スキル</span><span>SKILL</span></h3>
+                            <ul class="skill_info_list">
+                                <li class="js-io">
+                                    <span></span>
+                                    <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-otf.svg" alt="色彩検定2級" decoding="async"></img></p>
+                                    <h4 class="info_list_ttl">色彩検定2級</h4>
+                                </li>
+                                <li class="js-io">
+                                    <span></span>
+                                <p class="skill_info_img"><img src="{{ ASSETS_DIR.PC }}images/index/skill-car.svg" alt="普通自動車第一種" decoding="async"></img></p>
+                                <h4 class="info_list_ttl">普通自動車第一種</h4>
+                            </li>
+                        </ul>
+                    </div>                                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-contact">
+        <Swiper
+            :modules="[SwiperAutoplay]"
+            :slides-per-view="5"
+            loop
+            :speed="6000"
+            :loopAdditionalSlides="5"
+            :breakpoints="breakpoints"
+            :autoplay="{
+                delay: 0,
+                disableOnInteraction: false
+            }"
+        >
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider01.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider02.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider03.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider04.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider05.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider06.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider01.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider02.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider03.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider04.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider05.jpg" alt="" decoding="async" /></div>
+                    <div class="swiper-slide"><img src="{{ ASSETS_DIR.PC }}images/index/top-slider06.jpg" alt="" decoding="async" /></div>
+                </div>
+            </div>
+        </Swiper>
+        <div class="top-contact_box">
+            <p>お気軽にお問い合わせください</p>
+            <div><a href="/contact" class="btn">お問い合わせはコチラ</a></div>
+        </div>
+    </section>
+</article>
+
+
+
+{{!-- <!-- Components Object -->
+{{> components/exampleComponent }}
+<!-- Data -->
+<p>{{ data.example.text }}</p>
+<p class="test">トップです</p>
+{{#each data.example.rows}}
+  {{#each this}}
+  <li class="list{{ @index }}">{{ @key }}:{{ this }}</li>
+  {{/each}}
+{{/each}}
+{{#each data.gsx.rows}}
+  <p>{{ @index }}-{{ @key }}__{{ this }}</p>
+  {{#each this}}
+  <p>{{ @index }}-{{ @key }}__{{ this }}</p>
+  {{/each}}
+{{/each}}
+<p>{{ data.exampleThree.exampleThree.text }}</p>
+<p>{{ data.exampleFour.text }}</p>
+<p>{{ data.exampleFour.test.text }}</p> --}}
+</main>

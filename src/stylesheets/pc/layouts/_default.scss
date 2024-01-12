@@ -1,0 +1,448 @@
+@use "sass:math";
+@use "../../../common/stylesheets/config";
+
+/* ------------------------------------------- SASS Information
+ Name:      layouts/_default.scss
+----------------------------------------------------------- */
+
+html {
+  box-sizing: border-box;
+  // color: config.$m-black;
+  font-size: 62.5%; 
+  -webkit-font-smoothing: antialiased;
+    &::after{
+      content: '';
+      opacity: 0;
+      transition: opacity .3s;
+  }
+  &.is-menuOpen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      &::after{
+          content: '';
+          background-color: rgba(config.$m-black, .6);
+          position: fixed;
+          top: 90px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          opacity: 1;
+      }
+  }
+}
+
+
+body {
+  background: config.$BASE_COLOR;
+  color: config.$FONT_COLOR;
+  font-size: config.$FONT_SIZE;
+  font-family: config.$FONT_FAMILY;
+  @include config.mq(md){
+    font-size: config.$FONT_SIZE_MD;
+  }
+  
+  @include config.RESPONSIVE('PRINT', config.$MAX_WIDTH) {
+    width: config.$MAX_WIDTH;
+    transform: scale(.8);
+    transform-origin: 0 0;
+  }
+}
+
+a {
+  color: config.$LINK_COLOR;
+  line-height: config.$LINE_HEIGHT;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  line-height: config.$LINE_HEIGHT;
+}
+
+// html {
+//   &.iphoneX {
+//     padding-top: constant(safe-area-inset-top);
+//     padding-bottom: constant(safe-area-inset-bottom);
+//     padding-left: constant(safe-area-inset-left);
+//     padding-right: constant(safe-area-inset-right);
+
+//     padding-top: env(safe-area-inset-top);
+//     padding-bottom: env(safe-area-inset-bottom);
+//     padding-left: env(safe-area-inset-left);
+//     padding-right: env(safe-area-inset-right);
+//   }
+//   // UIWebkit では上記が聞かないので 使用する場合はコメントアウト解除
+//   @media screen and (orientation: portrait) {
+//     &.iphoneX {
+//       padding-top: 44px;
+//       padding-bottom: 34px;
+//       padding-left: 0px;
+//       padding-right: 0px;
+//     }
+//   }
+//   @media screen and (orientation: landscape) {
+//     &.iphoneX {
+//       padding-top: 0px;
+//       padding-bottom: 21px;
+//       padding-left: 44px;
+//       padding-right: 44px;
+//     }
+//   }
+// }
+
+
+
+
+
+
+@mixin opacity-anime {
+  transition: opacity .3s linear;
+  &:hover,&:focus{
+    opacity: .6;
+  }
+}
+
+@mixin opacity-items-anime {
+  opacity: 0;
+  transform: translateY(20px);
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      transition: transform .27s #{$i * 0.15}s, opacity .27s #{$i * 0.15}s;
+    }
+  }
+  &.is-inview{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@mixin scroll-showUp{
+  opacity: 0;
+  transform: translateY(20px);
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      transition: transform .27s #{$i * 0.15}s, opacity .27s #{$i * 0.15}s;
+    }
+  }
+  &.is-inview{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin scroll-showDown{
+  >span{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-25px);
+    @for $i from 1 through 30 {
+      &:nth-child(#{$i}) {
+        transition: transform .5s #{$i * 0.1}s, opacity .5s #{$i * 0.1}s;
+      }
+    }
+  }
+  &.is-inview{
+    >span{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin scroll-fadeUp($delay){
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform .5s #{$delay}s, opacity .5s #{$delay}s;
+  &.is-inview{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+@mixin arrow-right($color) {
+    position: relative;
+    display: block;
+    width: 12px;
+    height: 1px;
+    border-radius: 5px;
+    background-color: $color;
+    &::before,&::after{
+      content: "";
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 1px;
+      border-radius: 5px;
+      background-color: inherit;
+      right: -1px;
+    }
+    &::before {
+      top: 2px;
+      transform: rotate(-45deg);
+    }
+    &::after {
+      bottom: 2px;
+      transform: rotate(45deg);
+    }
+  }
+
+
+
+
+// moreボタン
+@mixin moreBtn($color,$trans-color){
+  .more_btn{
+    display: block;
+    width: 70%;
+    height: 60px;
+    text-align: center;
+    color: $color;
+    border: 1px solid $color;
+    border-radius: 40px;
+    line-height: 60px;
+    position: relative;
+    background-color: $trans-color;
+    @include arrow-right($color);
+    .arrow_round{
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @include bp-sm{
+      width: 172px;
+    }
+    @include bp-lg{
+      transition: background-color .3s;
+      &:hover{
+        background-color: $color;
+        color: $trans-color;
+        border: 1px solid $trans-color;
+        .arrow_round{
+          background-color: $trans-color;
+        }
+      }
+    }
+  }
+  }
+
+
+
+
+
+
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('../../font/NotoSansJP-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; 
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src: url('../../font/NotoSansJP-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap; 
+}
+
+
+@mixin fontRaleway(){
+  font-family: 'Raleway', sans-serif;
+}
+
+
+@mixin btnSlideAnime($color){
+  background-color: $color;
+  color: $white;
+  border: 2px solid $color;
+  @include config.mq(md){
+      background-color: transparent;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      &::after{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          transform: translateX(0);
+          background: $color;
+          transition: transform .3s;
+          z-index: -1;
+      }
+      &:hover{
+          color: $color;
+          &::after{
+              transform: translateX(100%);
+          }
+      }
+  }
+
+}
+
+.pin-spacer{
+  padding: 0 !important;
+  // height: auto!important;
+}
+
+// トップページ
+.common-ttl_box{
+  margin-bottom: 3.5rem;
+  >span{
+      display: inline-block;
+      font-size: 1em;
+      color: config.$l-brown;
+      font-weight: 900;
+      overflow: hidden;
+      position: relative;
+      &::after{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: config.$l-brown;
+          transition: transform .3s 1s ease-in-out;
+      }
+      &.is-inview{
+          &::after{
+              transform: translateX(100%);
+          }
+      }
+  }
+}
+
+.common-ttl{
+  font-size: clamp(5.6rem, 4.871rem + 1.945vw, 6.8rem);
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  line-height: 1.3;
+  @include fontRaleway;
+  @include config.mq(md){
+      font-size: 6.8rem;
+  }
+  @include scroll-showDown;
+}
+
+
+.md-container{
+  margin: 0 3%;
+  padding: 0 2%;
+  max-width: config.$screen-sm;
+  @include config.mq(sm){
+    margin: 0 auto;
+  }
+  @include config.mq(md){
+    margin: 0 auto;
+  }
+  @include config.mq(lg){
+    margin: 0 auto;
+  }
+  
+}
+
+.lg-container{
+  margin: 0 3%;
+  padding: 0 2%;
+  max-width: config.$screen-md;
+  @include config.mq(md){
+    margin: 0 auto;
+  }
+  @include config.mq(lg){
+    margin: 0 auto;
+  }
+}
+
+.xl-container{
+  margin: 0 3%;
+  padding: 0 2%;
+  max-width: config.$screen-lg;
+
+  @include config.mq(lg){
+    margin: 0 auto;
+  }
+}
+
+
+.btn_wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn{
+  text-align: center;
+  padding: 1.2em 1em;
+  font-size: .9em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  min-width: 200px;
+  border-radius: 5px;
+}
+
+
+.subpage_fv{
+  padding: 3em 0 5em;
+  @include config.mq(sm){
+    padding: 6em 0 7em;
+  }
+  @include config.mq(md){
+    padding: 6em 0 7em;
+  }
+  @include config.mq(lg){
+    padding: 6em 0 7em;
+  }
+  h2{
+    font-size: clamp(3.8rem, 2.584rem + 3.241vw, 5.8rem);
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    @include fontRaleway;
+    // @include scroll-showDown;
+    @include config.mq(md){
+      font-size: 5.6rem;
+    }
+    @include config.mq(lg){
+      font-size: 5.6rem;
+    }
+  }
+  >span{
+    display: inline-block;
+    font-weight: 800;
+    overflow: hidden;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: config.$l-brown;
+        transition: transform .3s 1s ease-in-out;
+    }
+    &.is-inview{
+        &::after{
+            transform: translateX(100%);
+        }
+    }
+  }
+
+}

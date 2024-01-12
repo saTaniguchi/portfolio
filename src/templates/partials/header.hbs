@@ -1,0 +1,30 @@
+{{#if (eq layout 'pc')}}
+<header id="section-header" ref="headerRef">
+    <div class="xl-container">
+        <h1>
+            <a href="/">
+                <img src="{{ RELATIVE_PATH }}assets/images/common/logo.svg" alt="" />
+                <span>ポートフォリオ</span>
+            </a>
+        </h1>
+        <button type="button" id="js-header-hmbg" class="hmbg_btn" aria-controls="js-header-nav" aria-label="メニューを開く">
+            <span class="hmbg_bar"></span>
+        </button>
+
+        <nav id="js-header-nav" class="header_nav" aria-hidden="true">
+            <ul class="header_nav_list">
+                <li><a href="/"><span data-text="TOP" class="nav_item_txt">TOP</span></a></li>
+                <li><a href="/#top-about"><span data-text="ABOUT" class="nav_item_txt">ABOUT</span></a></li>
+                {{!-- <li><a href="/#top-work"><span data-text="WORK" class="nav_item_txt">WORK</span></a></li> --}}
+                <li><a href="/#top-skill"><span data-text="SKILL" class="nav_item_txt">SKILL</span></a></li>
+                <li><a href="/contact"><span data-text="CONTACT" class="nav_item_txt">CONTACT</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</header><!-- /#section-header -->
+{{else}}
+<header id="section-header">
+    <h1>header</h1>
+</header><!-- /#section-header -->
+{{/if}}
+

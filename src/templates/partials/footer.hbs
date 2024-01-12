@@ -1,0 +1,23 @@
+{{#if (eq layout 'pc')}}
+<footer id="section-footer">
+    <div class="md-container">
+        <div class="footer_logo">
+            <a href="/">
+                <img src="{{ RELATIVE_PATH }}assets/images/common/logo.svg" alt="" />
+                <p>ポートフォリオ</p>
+            </a>
+        </div>
+        <p class="footer_cp">&copy;<span id="footerYear"></span>s.taniguchi-portfolio</p>
+    </div>
+</footer><!-- /#section-footer -->
+{{else}}
+<footer id="section-footer">
+  <p>footer</p>
+</footer><!-- /#section-footer -->
+{{/if}}
+
+
+<script setup lang="ts">
+    const date = new Date();
+    const current = date.getFullYear();
+</script>

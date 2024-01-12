@@ -1,0 +1,10 @@
+node_modules
+.sass-cache
+*.orig
+.idea
+.DS_Store
+.node-version
+npm-debug.log
+yarn.lock
+htdocs
+src/common/stylesheets/vars/_variable.scss

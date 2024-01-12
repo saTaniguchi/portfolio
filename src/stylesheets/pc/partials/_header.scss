@@ -1,0 +1,245 @@
+@use "sass:math";
+@use "../../../common/stylesheets/config";
+
+/* ------------------------------------------- SASS Information
+ Name:      partials/_header.scss
+----------------------------------------------------------- */
+#section-header {
+  &{
+      transform: translateY(-100%);
+      transition: transform .8s, opacity .5s;
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      &.is-load{
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+      }
+  }
+  
+  >div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.7em 0 1.5em;
+    margin: 0 5%;
+    @include config.mq(md){
+        padding: 3em 0 2.5em;
+    }
+    @include config.mq(lg){
+        margin: 0 auto;
+    }
+  }
+
+  &.is-top{
+    >div{
+      border-bottom: none;
+    }
+  }
+
+  h1{
+      font-weight: 900;
+      // @include opacity-anime;
+      a{
+          display: flex;
+          align-items: center;
+          gap: .6em;
+      }
+      span{
+          font-size: 1.4em;
+          letter-spacing: -1px;
+      };
+      img{
+          display: block;
+          width: 45px;
+      }
+  }
+
+.hmbg_btn{
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border: none;
+  @include config.mq(md){
+      display: none;
+  }
+  @include config.mq(lg){
+  display: none;
+  }
+}
+
+.hmbg_bar{
+  &::before, &::after{
+    content: '';
+    width: 22px;
+    height: 3px;
+    background: config.$m-black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center;
+    transition: transform .3s;
+  }
+  &::before{
+      top: 16px;
+  }
+  &::after{
+      top: 24px;
+  }
+}
+
+.hmbg_btn.is-show{
+  .hmbg_bar{
+    &::before{
+        transform: translate(-50%, 4px)rotate(45deg);
+    }
+    &::after{
+        transform: translate(-50%, -4px)rotate(-45deg);
+    }
+  }
+}
+  
+  
+  @include config.RESPONSIVE('PC', config.$MIN_WIDTH) {
+  }
+
+
+  @include config.RESPONSIVE('SP', config.$MIN_WIDTH) {
+
+  }
+}
+
+
+.header_nav{
+  max-height: 0;
+  transition: max-height 0s, padding 0s;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  right: 0;
+  background-color: config.$l-gray;
+  padding: 0;
+  z-index: 10;
+  visibility: hidden;
+  @include config.mq(md) {
+    display: block;
+    position: static;
+    overflow: auto;
+    background-color: transparent;
+    max-height: none;
+    visibility: visible;
+  }
+  @include config.mq(lg) {
+    display: block;
+    position: static;
+    overflow: auto;
+    background-color: transparent;
+    max-height: none;
+    visibility: visible;
+  }
+
+.header_nav_list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @include config.mq(md){
+      flex-direction: row;
+  }
+  @include config.mq(lg) {
+      flex-direction: row;
+  }
+  >li{
+    width: 100%;
+    a{
+      display: block;
+      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: .9em;
+      padding: .8em 0;
+      text-align: center;
+      width: 100%;
+      overflow: hidden;
+      @include config.mq(md){
+        padding: 0 1.2em;
+        font-size: .9em;
+        perspective-origin: 50% 50%;
+        &:hover span{
+            transform: translate3d(0, 0, -30px) rotateX(90deg);
+        }
+    }
+    @include config.mq(lg){
+        padding: 0 1.2em;
+        font-size: .9em;
+        perspective-origin: 50% 50%;
+        &:hover span{
+          transform: translate3d(0, 0, -30px) rotateX(90deg);
+        }
+      }
+    }
+  }
+
+  .nav_item_txt{
+    opacity: 0;
+    transform: translateY(calc(100% + .8em));
+    display: inline-block;
+    transition: transform 0s, opacity 0s;
+    @include config.mq(md){
+      opacity: 1;
+      transform-origin: 50% 0%;
+      transform-style: preserve-3d;
+      transform: translateY(0);
+      position: relative;
+      transition: transform .2s;
+      &::after{
+          content: attr(data-text);
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform-origin: 50% 0%;
+          transform: translate3d(0, 105%, 0) rotateX(-90deg);
+      }
+    }
+    @include config.mq(lg){
+      opacity: 1;
+      transform-origin: 50% 0%;
+      transform-style: preserve-3d;
+      transform: translateY(0);
+      position: relative;
+      transition: transform .2s;
+      &::after{
+          content: attr(data-text);
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform-origin: 50% 0%;
+          transform: translate3d(0, 105%, 0) rotateX(-90deg);
+      }
+    }
+  }
+}
+
+}
+
+.header_nav{
+  &.is-show{
+    padding: 4em 0;
+    max-height: 100vh;
+    visibility: visible;
+    transition: max-height .2s, padding .2s;
+    &::after{
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav_item_txt{
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform .3s .5s ease-in-out, opacity .3s .5s ease-in-out;
+    }
+  }
+}

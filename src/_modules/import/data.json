@@ -1,0 +1,28 @@
+[
+  {
+    "TYPE": "dir",
+    "DATA": "フォルダ名",
+    "OUTPUT": "出力先のパス"
+  },
+  {
+    "TYPE": "file",
+    "DATA": "ファイル名",
+    "OUTPUT": "出力先のパス"
+  },
+  {
+    "TYPE": "dir",
+    "DATA": "hoge",
+    "OUTPUT": "assets/hoge/"
+  },
+  {
+    "TYPE": "file",
+    "DATA": "https://myportfolio2107.microcms.io/api/v1/",
+    "OUTPUT": "assets/test"
+  },
+  {
+    "TYPE": "dir",
+    "DATA": "font",
+    "OUTPUT": "assets/font/"
+  }
+
+]

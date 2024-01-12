@@ -1,0 +1,104 @@
+@use "sass:math";
+@use "../../../common/stylesheets/config";
+
+/* ------------------------------------------- SASS Information
+ Name:      _hoge_fuga.scss
+----------------------------------------------------------- */
+.page-work {
+    .work_detail_ttl{
+        font-size: 1.1em;
+        margin-bottom: .7em;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        border-left: 5px solid config.$d-black;
+        padding-left: .7em;
+    }
+
+    .work_detail_img{
+        margin-bottom: 4rem;
+        background-color: config.$beige;
+        padding: 1.5em 2em;
+        img{   
+            background-color: config.$beige;
+            display: block;
+            margin: 0 auto;
+            @include config.mq(sm){
+                aspect-ratio: 16/9;
+                object-fit: contain;
+                object-position: top center;
+            }
+            @include config.mq(md){
+                aspect-ratio: 16/9;
+                object-fit: contain;
+                object-position: top center;
+            }
+            @include config.mq(lg){
+                aspect-ratio: 16/9;
+                object-fit: contain;
+                object-position: top center;
+            }
+        }
+    }
+
+    .work_headline{
+        display: inline-block;
+        margin-bottom: .8em;
+        font-size: 1.45em;
+        letter-spacing: 2px;
+        padding-bottom: .7em;
+        line-height: 1.4;
+        border-bottom: 1px solid config.$d-black;
+    }
+
+    .work_date{
+        font-size: .85em;
+        font-weight: 800;
+        margin-bottom: 6rem;
+    }
+
+    .work_detail_url{
+        >span{
+            display: inline-block;
+            margin-right: .5em;
+        }
+        >a{
+            text-decoration: underline;
+        }
+    }
+
+    .work_detail_skill{
+        &+.work_detail_skill{
+            &::before{
+                content: '/';
+                display: inline-block;
+                margin: 0 .7em;
+            }
+        }
+    }
+
+    .work_body{
+        line-height: 1.8;
+    }
+
+    .work_url_link{
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        object-fit: contain;
+        vertical-align: middle;
+        margin: 0 .3em;
+    }
+
+    .btn_wrapper{
+        margin-bottom: 5em;
+    }
+
+    .btn_wrapper{
+        margin-top: 5em;
+    }
+
+    // .work_btn{
+    //     @include btnSlideAnime(config.$m-black);
+    // }
+
+}
