@@ -7,6 +7,7 @@ BODY_CLASS: index
 ADD_STYLES:
   - https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css
 ADD_SCRIPTS_HEADER:
+
   - https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js
@@ -44,6 +45,8 @@ META_WINDOWS_IMAGE: tile_image.png
 META_WINDOWS_COLOR: #000000
 META_OLD_BROWSER: false
 META_PWA_MODE: false
+
+
 ---
 
 <main id="section-contents">
@@ -120,34 +123,22 @@ META_PWA_MODE: false
                 </div>
                     <div class="top-work_container">
                         <ul id="topWorkList" class="top-work_list">
-                                {{!-- {{#each data}}
-                                    <li class="top-work_item">
-                                        <a href="">
-                                            <div class="work_item_img">
-                                                <img
-                                                    src="work.img.url"
-                                                    alt=""
-                                                    decoding="async"
-                                                />
-                                            </div>
-                                            <h3 class="work_item_ttl">{{title}}</h3>
-                                        </a>
-                                    </li>
-                                {{/each}} --}}
-    
+                            {{#each data}}
+                            <li class="top-work_item">
+                                <a href="{{id}}">
+                                    <div class="work_item_img">
+                                        <img
+                                            src="{{url}}"
+                                            alt=""
+                                            decoding="async"
+                                        />
+                                    </div>
+                                    <h3 class="work_item_ttl">{{ title }}</h3>
+                                </a>
+                            </li>
+                            {{/each}}
                         </ul>
 
-                        {{!-- <script>
-                            const { createClient } = microcms;
-
-                            const client = createClient({
-                            serviceDomain: 'myportfolio2107', // service-domain は XXXX.microcms.io の XXXX 部分
-                            apiKey: 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
-                            })
-                            client.get({ endpoint: 'work'}).then((res) => {
-                            document.querySelector('.top-work_item').textContent = res.text
-                            })
-                        </script> --}}
 
                         {{!-- <ul class="top-work_list">
                             <li class="top-work_item" v-for="work in data.contents" :key="work.id">

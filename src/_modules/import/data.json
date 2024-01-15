@@ -14,11 +14,7 @@
     "DATA": "hoge",
     "OUTPUT": "assets/hoge/"
   },
-  {
-    "TYPE": "file",
-    "DATA": "https://myportfolio2107.microcms.io/api/v1/",
-    "OUTPUT": "assets/test"
-  },
+
   {
     "TYPE": "dir",
     "DATA": "font",

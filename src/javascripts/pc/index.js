@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Handlebars from 'handlebars';
 
 
 class Index {
@@ -10,51 +11,77 @@ class Index {
       this.skillScrollObserver();
       this.wrapSplitSpan();
       this.swiper();
-      this.gsapHorizonalScroll();
+      // this.gsapHorizonalScroll();
     }
   }
 
 
   index() {
-
-    const workListInsert = (element) =>{
-      const WorkLists = document.getElementById('topWorkList');
-      let WorkListHtml = 
-          `<li class="top-work_item">
-            <a href="${element.id}">
-              <div class="work_item_img">
-                <img
-                src="${element.img.url}"
-                alt=""
-                decoding="async"
-                />
-              </div>
-              <h3 class="work_item_ttl">${element.title}</h3>
-            </a>
-          </li>`;
-      WorkLists.innerHTML += WorkListHtml;
-    }
-
-    
     fetch("https://myportfolio2107.microcms.io/api/v1/work", {
       headers: {
-        "X-MICROCMS-API-KEY": 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
+        'Content-Type': 'application/json',
+        'X-MICROCMS-API-KEY': 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
       },
     })
     
-    
-    
     .then(async (res) =>  {
       const response = await res.json();
-      _.forEach(response.contents, (element)=>{
-        workListInsert(element);
+      let topWorkList = document.getElementById('topWorkList')
+      let source = topWorkList.innerHTML;
+      console.log(source)
+      let template = Handlebars.compile(source);
+      let html = template({
+        data: response.contents
       });
-
+      topWorkList.innerHTML = html
     })
 
-    .catch((error) => console.error("エラーです:", error));
-      return console.log('Index');
-    }
+
+    // ---handlebarsを使用せずに記述した例（うまく表示された）----
+
+    // const workListInsert = (element) =>{
+    //   const WorkLists = document.getElementById('topWorkList');
+    //   let WorkListHtml = 
+    //       `<li class="top-work_item">
+    //         <a href="${element.id}">
+    //           <div class="work_item_img">
+    //             <img
+    //             src="${element.img.url}"
+    //             alt=""
+    //             decoding="async"
+    //             />
+    //           </div>
+    //           <h3 class="work_item_ttl">${element.title}</h3>
+    //         </a>
+    //       </li>`;
+    //   WorkLists.innerHTML += WorkListHtml;
+    // }
+
+    // async function fetchMicoCMS(){
+    //   const response = await fetch("https://myportfolio2107.microcms.io/api/v1/work", {
+    //       headers: {
+    //         "X-MICROCMS-API-KEY": 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
+    //       },
+    //   });
+    //   const json = await response.json();
+      // const source = document.getElementById('workList-template').innerHTML;
+      // const template = Handlebars.compile(source);
+      // const html = template({
+      //   data: json.contents
+      // })
+      // console.log(html);
+      // _.forEach(json.contents, (element)=>{
+      //   workListInsert(element);
+      // });
+    // }
+    // fetchMicoCMS();
+
+
+    // .catch((error) => console.error("エラーです:", error));
+    //   return console.log('Index');
+    // }
+        // ---handlebarsを使用せずに記述した例（うまく表示された）----
+  }
 
 
   // ファーストビューのアニメーション
