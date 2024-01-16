@@ -1,0 +1,37 @@
+@use "sass:math";
+@use "../../../common/stylesheets/config";
+
+/* ------------------------------------------- SASS Information
+ Name:      _hoge.scss
+----------------------------------------------------------- */
+.page-complete {
+@include config.RESPONSIVE('PC', config.$MIN_WIDTH) {
+
+}
+@include config.RESPONSIVE('SP', config.$MIN_WIDTH) {
+
+}
+
+
+.complete_ttl, .error_ttl{
+    font-size: clamp(2rem, 1.696rem + 0.81vw, 2.5rem);
+    margin-bottom: 1em;
+    font-weight: 800;
+    @include config.mq(md){
+        font-size: 2.5rem;
+    }
+    @include config.mq(lg){
+        font-size: 2.5rem;
+    }
+}
+
+.complete_wrapper, .error_wrapper{
+    background: config.$ll-gray;
+    padding: 4em 5%;
+    text-align: center;
+}
+
+// .btn{
+//     @include config.btnSlideAnime($m-black);
+// }
+}

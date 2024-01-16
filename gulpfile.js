@@ -66,6 +66,8 @@ axios.get(apiUrl,
   .catch(error => {
     console.error('APIからデータを取得できませんでした:', error);
   });
+  
+  require("dotenv").config()
 
 
 //------------------------------------------------------
