@@ -235,6 +235,7 @@
             display: block;
             width: 100%;
             aspect-ratio: 6.5/4;
+            height: auto;
             object-fit: contain;
             object-position: center;
             background: config.$white;

@@ -1,6 +1,4 @@
 import _ from 'lodash';
-import Handlebars from 'handlebars';
-
 
 class Index {
 
@@ -11,30 +9,30 @@ class Index {
       this.skillScrollObserver();
       this.wrapSplitSpan();
       this.swiper();
-      // this.gsapHorizonalScroll();
+      this.gsapHorizonalScroll();
     }
   }
 
 
   index() {
-    fetch("https://myportfolio2107.microcms.io/api/v1/work", {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-MICROCMS-API-KEY': 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
-      },
-    })
+    // fetch("https://myportfolio2107.microcms.io/api/v1/work", {
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'X-MICROCMS-API-KEY': 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
+    //   },
+    // })
     
-    .then(async (res) =>  {
-      const response = await res.json();
-      let topWorkList = document.getElementById('topWorkList')
-      let source = topWorkList.innerHTML;
-      console.log(source)
-      let template = Handlebars.compile(source);
-      let html = template({
-        data: response.contents
-      });
-      topWorkList.innerHTML = html
-    })
+    // .then(async (res) =>  {
+    //   const response = await res.json();
+    //   let topWorkList = document.getElementById('topWorkList')
+    //   let source = topWorkList.innerHTML;
+    //   console.log(source)
+    //   let template = Handlebars.compile(source);
+    //   let html = template({
+    //     data: response.contents
+    //   });
+    //   topWorkList.innerHTML = html
+    // })
 
 
     // ---handlebarsを使用せずに記述した例（うまく表示された）----
@@ -96,23 +94,22 @@ class Index {
 
 
   gsapHorizonalScroll() {
-
     window.addEventListener('load',()=>{
-      // const workItems  = gsap.utils.toArray(".top-work_item");
+      const workItems  = document.querySelectorAll(".top-work_item");
       const workList  = document.querySelector(".top-work_list");
-      const workListWidth  = workList.offsetWidth;
+      const workListWidth  = workList.offsetWidth
       const topWork = document.getElementById("top-work");
       const topWorkWidth = topWork.offsetWidth;
 
       // console.log(workItems);
       gsap.to(workList, {
         // x: () => -110 * (workItems.length - 1),
-        x: () => -(topWorkWidth - workListWidth),
+        xPercent: -20 * (workItems.length - 1),
         ease: 'none',
         scrollTrigger: {
           trigger: topWork,
-          end: () => "+=" + topWorkWidth,
-          scrub: 1,
+          end: () => "+=" + workListWidth,          
+          scrub: true,
           pin: true,
           anticipatePin: 1,
           invalidateOnRefresh: true

@@ -123,14 +123,16 @@ META_PWA_MODE: false
                 </div>
                     <div class="top-work_container">
                         <ul id="topWorkList" class="top-work_list">
-                            {{#each data}}
+                            {{#each data.microcms.contents}}
                             <li class="top-work_item">
-                                <a href="{{id}}">
+                                <a href="{{ id }}">
                                     <div class="work_item_img">
                                         <img
-                                            src="{{url}}"
+                                            src="{{ img.url }}"
                                             alt=""
                                             decoding="async"
+                                            width="{{ img.width }}"
+                                            height="{{ img.height }}"
                                         />
                                     </div>
                                     <h3 class="work_item_ttl">{{ title }}</h3>

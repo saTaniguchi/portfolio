@@ -51,6 +51,23 @@ const webConfig = require('./src/config'); // サイト共通設定
 const handlebars = require('./tasks/modules/handlebars'); // Handlebars 拡張
 const webpackConfig = require('./tasks/webpack.config'); // Webpack 共通設定
 
+
+
+// MICROCMSからデータを取得しローカルにJSONファイル作成
+const axios = require('axios');
+
+const apiUrl = 'https://myportfolio2107.microcms.io/api/v1/work';
+axios.get(apiUrl,
+  {headers: {'X-MICROCMS-API-KEY': 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9'}})
+  .then(response => {
+    const data = response.data;
+    fs.writeFileSync('./src/_modules/import/microcms.json', JSON.stringify(data, null, 2));
+  })
+  .catch(error => {
+    console.error('APIからデータを取得できませんでした:', error);
+  });
+
+
 //------------------------------------------------------
 // Development & Production Environment Branch processing
 // 開発＆本番環境の振り分け処理

@@ -1,0 +1,198 @@
+{
+  "contents": [
+    {
+      "id": "wp-kWgjoE",
+      "createdAt": "2023-11-08T04:06:50.088Z",
+      "updatedAt": "2023-11-10T03:22:24.735Z",
+      "publishedAt": "2023-11-08T04:06:50.088Z",
+      "revisedAt": "2023-11-10T03:22:24.735Z",
+      "img": {
+        "url": "https://images.microcms-assets.io/assets/c77e65a37d06487b934a39243375d968/9cb66832fae546ca8c83893c33bb752d/shima-challe.jpg",
+        "height": 585,
+        "width": 1077
+      },
+      "title": "しまチャレ2023",
+      "time": "2023/09 ~ 2023/10",
+      "url": "https://nagasaki-shimachalle.jp/",
+      "parts": [
+        {
+          "fieldId": "part",
+          "parts": "コーディング"
+        }
+      ],
+      "skills": [
+        {
+          "fieldId": "skill",
+          "skills": "HTML"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "CSS"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "JavaScript"
+        }
+      ],
+      "body": "<p>フォントに特徴のあるデザインで、可能な限りタイトルなど画像化せず作成してほしいとの要望でした。そのため、data-text属性などを活用しデザインデータに忠実に取り組みました。<br><br>その他、WAI-ARIAを意識し記述を加え、文章や項目などの加減が見込まれる予定でしたので、後ほど変更があった場合に備えたCSSを記述するよう心掛けました。</p>"
+    },
+    {
+      "id": "DJ97BCJapr",
+      "createdAt": "2023-11-08T04:16:15.351Z",
+      "updatedAt": "2023-11-10T03:26:16.865Z",
+      "publishedAt": "2023-11-08T04:16:15.351Z",
+      "revisedAt": "2023-11-10T03:26:16.865Z",
+      "img": {
+        "url": "https://images.microcms-assets.io/assets/c77e65a37d06487b934a39243375d968/49d528ddf33d4458ba61da4e7361e95a/ikeuchi.jpg",
+        "height": 584,
+        "width": 1079
+      },
+      "title": "株式会社 池内工務店",
+      "time": "2023/01 ~ 2023/02",
+      "url": "https://ikeuchi-db.com/",
+      "parts": [
+        {
+          "fieldId": "part",
+          "parts": "コーディング"
+        }
+      ],
+      "skills": [
+        {
+          "fieldId": "skill",
+          "skills": "HTML"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "CSS"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "JavaScript"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "Gulp4"
+        }
+      ],
+      "body": "<p>コーディング作業期間がタイトであったため、普段以上に事前準備を入念に行い、また作業ペースを上げ時間をかける箇所と省ける箇所を意識して作業に臨みました。<br>その他、スクロールやホバーアクションに応じたCSSアニメーションを複数種類取り入れ、動きのあるWebページができるように取り組みました。</p>"
+    },
+    {
+      "id": "XtJwAR58C3g",
+      "createdAt": "2023-11-09T01:32:20.291Z",
+      "updatedAt": "2023-11-10T03:26:32.169Z",
+      "publishedAt": "2023-11-09T01:32:20.291Z",
+      "revisedAt": "2023-11-10T03:26:32.169Z",
+      "img": {
+        "url": "https://images.microcms-assets.io/assets/c77e65a37d06487b934a39243375d968/76e18c4a8dca4139ad37dc621e320333/mediworks.jpg",
+        "height": 585,
+        "width": 1079
+      },
+      "title": "株式会社 メディワークス",
+      "time": "2023/10 ~ 2023/12",
+      "url": "https://mediworks.co.jp/",
+      "parts": [
+        {
+          "fieldId": "part",
+          "parts": "デザイン"
+        },
+        {
+          "fieldId": "part",
+          "parts": "コーディング"
+        },
+        {
+          "fieldId": "part",
+          "parts": "CMS構築"
+        }
+      ],
+      "skills": [
+        {
+          "fieldId": "skill",
+          "skills": "HTML"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "CSS"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "JavaScript"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "Gulp4"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "WordPress"
+        }
+      ],
+      "body": "<p>デザインからCMSの構築まで1人で携わりました。</p><p>清潔感があって硬すぎない雰囲気を目指してデザイン作業を行いました。</p><p>決定したデザインをもとに、WordPressのオリジナルテーマを作成しました。</p>"
+    },
+    {
+      "id": "xDxtdAi5n",
+      "createdAt": "2023-11-06T12:05:06.337Z",
+      "updatedAt": "2023-11-10T13:05:11.796Z",
+      "publishedAt": "2023-11-06T12:05:06.337Z",
+      "revisedAt": "2023-11-10T13:05:11.796Z",
+      "img": {
+        "url": "https://images.microcms-assets.io/assets/c77e65a37d06487b934a39243375d968/e108fef3c81e45e0ae508a01bbe02a32/tokyo-map.jpg",
+        "height": 1078,
+        "width": 1073
+      },
+      "title": "オリエントセラピースクール",
+      "time": "2022/11/15",
+      "parts": [
+        {
+          "fieldId": "part",
+          "parts": "イラスト制作"
+        }
+      ],
+      "skills": [
+        {
+          "fieldId": "skill",
+          "skills": "Adobe Illustrator"
+        }
+      ],
+      "body": "<p>オリエントセラピースクール様のパンフレットで使用されるアクセス地図のイラストになります。<br>道路や鉄道などの線幅や位置、また文字の大きさなど微調整しやすいように意識をして作業を進めました。<br>またパンフレットの配色に合わせてイラスト内の配色を選定。目的地のスクールを起点に、目印となる建物や道路、鉄道路線が分かりやすくなるように心掛けました。\n</p>"
+    },
+    {
+      "id": "q46XTZBQG",
+      "createdAt": "2023-11-06T08:33:13.511Z",
+      "updatedAt": "2023-11-10T13:05:51.936Z",
+      "publishedAt": "2023-11-09T01:13:43.793Z",
+      "revisedAt": "2023-11-10T13:05:51.936Z",
+      "img": {
+        "url": "https://images.microcms-assets.io/assets/c77e65a37d06487b934a39243375d968/87853d39f8a246d5827fd07d650e242a/motocli.jpg",
+        "height": 585,
+        "width": 1079
+      },
+      "title": "もとまち内科クリニック",
+      "time": "2021/09 ~ 2021/11",
+      "url": "https://www.motocli.com/",
+      "parts": [
+        {
+          "fieldId": "part",
+          "parts": "コーディング"
+        }
+      ],
+      "skills": [
+        {
+          "fieldId": "skill",
+          "skills": "HTML"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "CSS"
+        },
+        {
+          "fieldId": "skill",
+          "skills": "JavaScript"
+        }
+      ],
+      "body": "<p>スマートフォン、タブレット、PCサイズと画面幅によって工夫のあるデザインでした。そのためWEB上でも再現できるよう</p><p>横スクロールやカラムの並び方を調整し、また画像の位置などを細く設定し対処しました。</p><p>文言の変更や項目の追加が多く発生することが予想されたため、後から追加してもデザインが崩れないよう意識して作業を進めています。</p><p>その他にも、トップページメインビジュアル画像の作成も任せていただきました。</p>"
+    }
+  ],
+  "totalCount": 5,
+  "offset": 0,
+  "limit": 10
+}

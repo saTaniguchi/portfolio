@@ -19,6 +19,11 @@
     "TYPE": "dir",
     "DATA": "font",
     "OUTPUT": "assets/font/"
+  },
+  {
+    "TYPE": "file",
+    "DATA": "json",
+    "OUTPUT": "assets/import"
   }
 
 ]
