@@ -3,17 +3,33 @@ class Hoge {
   constructor() {
     if (Common.getName('Contact')) {
       this.contact();
-      // this.validate();
     } else if (Common.getName('Hoge_fuga')) {
       this.hoge_fuga();
     }
   }
 
-  validate() {
-    function validateForm() {
-      const name = document.getElementById("form-name").value;
+
+
+  contact() {
+    const contactForm = document.getElementById('contactForm');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+  
+          // バリデーションの呼び出し
+          if (validateForm()) {
+              // フォームがバリデーションを通過した場合、microCMSにデータを送信する処理を追加
+              submitToMicroCMS();
+          }
+      });
+    });
+
+    const validateForm = ()=>{
+      const nameText = document.getElementById("form-name").value;
       const email = document.getElementById("form-email").value;
       const textarea = document.getElementById("form-textarea").value;
+      const submitBtn = document.getElementById("submit-btn");
 
       const nameError = document.getElementById("error-name");
       const emailError = document.getElementById("error-email");
@@ -25,41 +41,35 @@ class Hoge {
       emailError.innerHTML = "";1
       textareaError.innerHTML = "";
 
-            let isValid = true;
 
-            // お名前のバリデーション
-            if (name.trim() === "") {
-                nameError.innerHTML = "お名前を入力してください";
-                isValid = false;
-            }
+      if (nameText.trim() === "") {
+          nameError.innerHTML = "お名前を入力してください";
+          return false;
+      }
 
-            // メールアドレスのバリデーション
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                emailError.innerHTML = "有効なメールアドレスを入力してください";
-                isValid = false;
-            }
+      // メールアドレスのバリデーション
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+          emailError.innerHTML = "有効なメールアドレスを入力してください";
+          return false;
+      }
 
-            // お問い合わせ内容のバリデーション
-            if (textarea.trim() === "") {
-                textareaError.innerHTML = "お問い合わせ内容を入力してください";
-                isValid = false;
-            }
+      // お問い合わせ内容のバリデーション
+      if (textarea.trim() === "") {
+          textareaError.innerHTML = "お問い合わせ内容を入力してください";
+          return false;
+      }
 
-            // 送信ボタンの有効/無効を設定
-            document.getElementById("submit-btn").disabled = !isValid;
-
-        return isValid;
+      // 送信ボタンの有効/無効を設定
+      // submitBtn.disabled = !isValid;
+  
+      return true;
     };
-  }
-
-  contact() {
 
 
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
 
-      let formData = new FormData(this);
+  const submitToMicroCMS = () =>{
+      const formData = new FormData(contactForm) 
       const apiUrl = 'https://myportfolio2107.microcms.io/api/v1/contact';
       const apiKey = 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9';
 
@@ -81,7 +91,8 @@ class Hoge {
           console.error('Error:', error);
           alert('お問い合わせの送信に失敗しました。');
       });
-  });
+
+  }
   }
 
 
