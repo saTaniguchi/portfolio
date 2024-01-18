@@ -52,15 +52,16 @@ META_PWA_MODE: false
                     </div>
                     <p>お気軽にお問い合わせください。</p>
                     <form 
-                    id="contactForm"
-                    class="form_wrapper"
+                        id="contactForm"
+                        class="form_wrapper"
+                        novalidate
                     >
                         <dl class="form_box">
                             <dt><span class="required">必須</span><label for="form-name">お名前</label></dt>
                             <dd>
                                 <input type="text" name="name" id="form-name" class="is-half">
                                 <p>例）山田太郎</p>
-                                <p id="error-name"></p>
+                                <p id="error-name" class="is-required"></p>
                             </dd>
                         </dl>
                         <dl class="form_box">
@@ -68,8 +69,7 @@ META_PWA_MODE: false
                             <dd>
                                 <input type="email" name="email" id="form-email" class="is-half">
                                 <p>例）portfolio@mail.com</p>
-                                <p id="error-email"></p>
-
+                                <p id="error-email" class="is-required"></p>
                             </dd>
                         </dl>
                         <dl class="form_box">
@@ -77,19 +77,18 @@ META_PWA_MODE: false
                             <dd>
                                 <input type="tel" name="tel" id="form-tel" class="is-half">
                                 <p>例）07001234567(*ハイフンなしでご記入ください)</p>
-                                <p id="error-tel"></p>
+                                <p id="error-tel" class="is-required"></p>
                             </dd>
                         </dl>
                         <dl class="form_box">
                             <dt><span class="required">必須</span><label for="form-textarea">お問い合わせ内容</label></dt>
                             <dd>
-                                <!-- <p v-if="errors.textarea">{{ errors.textarea }}</p> -->
                                 <textarea name="textarea"  id="form-textarea"></textarea>
                                 <p>お問い合わせ内容をお書き下さい。</p>
-                                <p id="error-textarea"></p>
+                                <p id="error-textarea" class="is-required"></p>
                             </dd>
                         </dl>
-                        <div class="btn_wrapper"><button id="submit-btn" type="submit" class="btn">送信する</button></div>
+                        <div class="btn_wrapper"><button class="btn" id="submit-btn" type="submit" class="btn">送信する</button></div>
                     </form>
                 </div>
             </section>

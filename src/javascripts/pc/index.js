@@ -15,26 +15,6 @@ class Index {
 
 
   index() {
-    // fetch("https://myportfolio2107.microcms.io/api/v1/work", {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'X-MICROCMS-API-KEY': 'XRcvtRPav49DOJO8XrKsPXW20SeLA3Pza0W9',
-    //   },
-    // })
-    
-    // .then(async (res) =>  {
-    //   const response = await res.json();
-    //   let topWorkList = document.getElementById('topWorkList')
-    //   let source = topWorkList.innerHTML;
-    //   console.log(source)
-    //   let template = Handlebars.compile(source);
-    //   let html = template({
-    //     data: response.contents
-    //   });
-    //   topWorkList.innerHTML = html
-    // })
-
-
     // ---handlebarsを使用せずに記述した例（うまく表示された）----
 
     // const workListInsert = (element) =>{
@@ -67,7 +47,6 @@ class Index {
       // const html = template({
       //   data: json.contents
       // })
-      // console.log(html);
       // _.forEach(json.contents, (element)=>{
       //   workListInsert(element);
       // });
@@ -78,7 +57,7 @@ class Index {
     // .catch((error) => console.error("エラーです:", error));
     //   return console.log('Index');
     // }
-        // ---handlebarsを使用せずに記述した例（うまく表示された）----
+        // ---handlebarsを使用せずに記述した例----
   }
 
 
@@ -99,11 +78,8 @@ class Index {
       const workList  = document.querySelector(".top-work_list");
       const workListWidth  = workList.offsetWidth
       const topWork = document.getElementById("top-work");
-      const topWorkWidth = topWork.offsetWidth;
 
-      // console.log(workItems);
       gsap.to(workList, {
-        // x: () => -110 * (workItems.length - 1),
         xPercent: -20 * (workItems.length - 1),
         ease: 'none',
         scrollTrigger: {
@@ -164,8 +140,8 @@ class Index {
         if (currentActiveIndex !== null) {
             currentActiveIndex.classList.remove("is-active");
         }   
-            const newActiveIndex = document.querySelector(`#indexList a[href*='#${element.id}']`);
-            newActiveIndex.classList.add("is-active");
+        const newActiveIndex = document.querySelector(`#indexList a[href*='#${element.id}']`);
+        newActiveIndex.classList.add("is-active");
     }
   }
 

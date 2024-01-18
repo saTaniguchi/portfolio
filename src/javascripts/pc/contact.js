@@ -25,34 +25,67 @@ class Hoge {
       });
     });
 
-    const validateForm = ()=>{
-      const nameText = document.getElementById("form-name").value;
-      const email = document.getElementById("form-email").value;
-      const textarea = document.getElementById("form-textarea").value;
-      const submitBtn = document.getElementById("submit-btn");
-
-      const nameError = document.getElementById("error-name");
-      const emailError = document.getElementById("error-email");
-      const telError = document.getElementById("error-tel");
-      const textareaError = document.getElementById("error-textarea");
 
 
-      nameError.innerHTML = "";
-      emailError.innerHTML = "";1
-      textareaError.innerHTML = "";
+    // const validateNameForm = ()=>{
+
+    // }
+    const nameInput = document.getElementById("form-name");
+    const emailInput = document.getElementById("form-email");
+    const textarea = document.getElementById("form-textarea").value;
+    const telInput = document.getElementById("form-tel");
+
+    
+
+    const emailError = document.getElementById("error-email");
+    const telError = document.getElementById("error-tel");
+    const textareaError = document.getElementById("error-textarea");
+    const nameError = document.getElementById("error-name");
+    
+
+    nameInput.addEventListener('blur',(e)=>{
+      if (e.target.value.trim() === "") {
+        nameError.innerHTML = "お名前を入力してください";
+      } 
+    })
 
 
-      if (nameText.trim() === "") {
-          nameError.innerHTML = "お名前を入力してください";
-          return false;
+    // メールアドレスのバリデーション
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    emailInput.addEventListener('blur',(e)=>{
+      if (e.target.value.trim() === "") {
+        emailError.innerHTML = "メールアドレスを入力してください";
+      }else if(!emailRegex.test(e.target.value)){
+        emailError.innerHTML = "有効なメールアドレスを入力してください";
       }
+    })
+
+
+    // 電話番号のバリデーション
+    const phoneRegex = /^\d+$/;
+    telInput.addEventListener('blur',(e)=>{
+      if (!e.target.value.trim() == "" && !phoneRegex.test(e.target.value)) {
+        telError.innerHTML = "有効な電話番号を入力してください";
+      } 
+    })
+    
+
+    const validateForm = ()=>{
+      nameError.innerHTML = "";
+      emailError.innerHTML = "";
+      textareaError.innerHTML = "";
+      telError.innerHTML = "";
 
       // メールアドレスのバリデーション
-      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-          emailError.innerHTML = "有効なメールアドレスを入力してください";
-          return false;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailText.trim() === "") {
+        emailError.innerHTML += "メールアドレスを入力してください";
+      }else if(!emailRegex.test(emailText)){
+        emailError.innerHTML += "有効なメールアドレスを入力してください";
       }
+
+      
+
 
       // お問い合わせ内容のバリデーション
       if (textarea.trim() === "") {
