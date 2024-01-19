@@ -11,96 +11,150 @@ class Hoge {
 
 
   contact() {
+    
+
     const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submit-btn');
 
     document.addEventListener('DOMContentLoaded', function () {
       contactForm.addEventListener('submit', function (e) {
-          e.preventDefault();
-  
-          // バリデーションの呼び出し
-          if (validateForm()) {
-              // フォームがバリデーションを通過した場合、microCMSにデータを送信する処理を追加
-              submitToMicroCMS();
-          }
+        e.preventDefault();
+          submitToMicroCMS();
       });
     });
 
-
-
-    // const validateNameForm = ()=>{
-
-    // }
-    const nameInput = document.getElementById("form-name");
-    const emailInput = document.getElementById("form-email");
-    const textarea = document.getElementById("form-textarea").value;
-    const telInput = document.getElementById("form-tel");
-
     
 
+
+    // フォーム入力インプット
+    const nameInput = document.getElementById("form-name");
+    const emailInput = document.getElementById("form-email");
+    const telInput = document.getElementById("form-tel");
+    const textareaInput = document.getElementById("form-textarea");
+
+    // エラー表示箇所
     const emailError = document.getElementById("error-email");
     const telError = document.getElementById("error-tel");
     const textareaError = document.getElementById("error-textarea");
     const nameError = document.getElementById("error-name");
-    
 
-    nameInput.addEventListener('blur',(e)=>{
-      if (e.target.value.trim() === "") {
-        nameError.innerHTML = "お名前を入力してください";
-      } 
-    })
+    // エラー文言
+    const requiredErrorMsg = "必須入力項目です"
+    const emailErrorMsg = "有効なメールアドレスを入力してください"
+    const teleErrorMsg = "有効な電話番号を入力してください"
+
+    // 各フォーム箇所の状態管理
+    let isNameValid = true;
+    let isEmailValid = true;
+    let isTelValid = false;
+    let isTextareaValid = true;
+
+    
+    let requiredClass = 'is-required'
+
+
+
+    // 名前入力のバリデーション
+    const nameInputCheck = ()=>{
+      nameInput.addEventListener('blur',(e)=>{
+        if (e.target.value.trim() === "") {
+          nameError.classList.add(requiredClass)
+          nameInput.classList.add(requiredClass);
+          nameError.innerHTML = requiredErrorMsg;
+          isNameValid = true;
+        } else{
+          nameError.classList.remove(requiredClass)
+          nameInput.classList.remove(requiredClass);
+          nameError.innerHTML = "";
+          isNameValid = false;
+        }
+        updateSubmitBtnState();
+      })
+    }
 
 
     // メールアドレスのバリデーション
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    emailInput.addEventListener('blur',(e)=>{
-      if (e.target.value.trim() === "") {
-        emailError.innerHTML = "メールアドレスを入力してください";
-      }else if(!emailRegex.test(e.target.value)){
-        emailError.innerHTML = "有効なメールアドレスを入力してください";
-      }
-    })
+    const emailInputCheck = ()=>{
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      emailInput.addEventListener('blur',(e)=>{
+        const emailVal = e.target.value.replace(/[\s]/g, '');
+        if (emailVal === "") {
+          emailError.classList.add(requiredClass);
+          emailInput.classList.add(requiredClass);
+          emailError.innerHTML = requiredErrorMsg;
+          isEmailValid = true; 
+        }else if(!emailRegex.test(emailVal)){
+          emailError.classList.add(requiredClass);
+          emailInput.classList.add(requiredClass);
+          emailError.innerHTML = emailErrorMsg;
+          isEmailValid = true; 
+        } else {
+          emailError.classList.remove(requiredClass);
+          emailInput.classList.remove(requiredClass);
+          emailError.innerHTML = "";
+          isEmailValid = false;
+        }
+        updateSubmitBtnState();
+      })
+    }
 
 
     // 電話番号のバリデーション
-    const phoneRegex = /^\d+$/;
-    telInput.addEventListener('blur',(e)=>{
-      if (!e.target.value.trim() == "" && !phoneRegex.test(e.target.value)) {
-        telError.innerHTML = "有効な電話番号を入力してください";
-      } 
-    })
+    const telInputCheck = ()=>{
+      const phoneRegex = /^\d+$/;
+      telInput.addEventListener('blur',(e)=>{
+        const telVal = e.target.value.replace(/[- \s]/g, '');
+        if (!telVal == "" && !phoneRegex.test(telVal)) {
+          telError.classList.add(requiredClass);
+          telInput.classList.add(requiredClass);
+          telError.innerHTML = teleErrorMsg;
+          isTelValid = true; 
+        } else {
+          telError.classList.remove(requiredClass);
+          telInput.classList.remove(requiredClass);
+          telError.innerHTML = "";
+          isTelValid = false;
+        }
+        updateSubmitBtnState();
+      })
+    }
+
+
+    // テキストエリアのバリデーション
+    const textareaInputCheck = ()=>{
+      textareaInput.addEventListener('blur',(e)=>{
+        if (e.target.value.trim() === "") {
+          textareaError.classList.add(requiredClass);
+          textareaInput.classList.add(requiredClass);
+          textareaError.innerHTML = requiredErrorMsg;
+          isTextareaValid = true; 
+        }  else {
+          textareaError.classList.add(requiredClass);
+          textareaInput.classList.remove(requiredClass);
+          textareaError.innerHTML = "";
+          isTextareaValid = false;
+        }
+        updateSubmitBtnState();
+      })
+    }
+
     
-
-    const validateForm = ()=>{
-      nameError.innerHTML = "";
-      emailError.innerHTML = "";
-      textareaError.innerHTML = "";
-      telError.innerHTML = "";
-
-      // メールアドレスのバリデーション
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailText.trim() === "") {
-        emailError.innerHTML += "メールアドレスを入力してください";
-      }else if(!emailRegex.test(emailText)){
-        emailError.innerHTML += "有効なメールアドレスを入力してください";
-      }
-
-      
+    const updateSubmitBtnState = () => {
+      submitBtn.disabled = ((isNameValid || isEmailValid || isTelValid || isTextareaValid))   
+    }
+    
+    updateSubmitBtnState();
 
 
-      // お問い合わせ内容のバリデーション
-      if (textarea.trim() === "") {
-          textareaError.innerHTML = "お問い合わせ内容を入力してください";
-          return false;
-      }
-
-      // 送信ボタンの有効/無効を設定
-      // submitBtn.disabled = !isValid;
-  
-      return true;
-    };
+    nameInputCheck();
+    emailInputCheck();
+    telInputCheck();
+    textareaInputCheck();
 
 
 
+
+  // MICROCMS お問い合わせ送信
   const submitToMicroCMS = () =>{
       const formData = new FormData(contactForm) 
       const apiUrl = 'https://myportfolio2107.microcms.io/api/v1/contact';

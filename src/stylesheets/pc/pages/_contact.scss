@@ -5,91 +5,105 @@
  Name:      _hoge.scss
 ----------------------------------------------------------- */
 .page-contact {
-  @include config.RESPONSIVE('PC', config.$MIN_WIDTH) {
+    @include config.RESPONSIVE('PC', config.$MIN_WIDTH) {
 
-  }
-  @include config.RESPONSIVE('SP', config.$MIN_WIDTH) {
+    }
+    @include config.RESPONSIVE('SP', config.$MIN_WIDTH) {
 
-  }
+    }
 
-  .form_wrapper{
+    .form_wrapper{
     padding: 4em .5em 7em;
-}
+    }
 
-  .form_box{
-      margin: 0 auto 2em;
-      &:last-of-type{
-          margin: 0 auto 3em;
-      }
-      dt{
-          margin-bottom: 8px;
-          display: flex;
-          align-items: center;
-      }
-      dd{
-          input{
-              display: block;
-              background: config.$ll-gray;
-              border-radius: 3px;
-              width: 50%;
-              padding: .4em .6em;
-              border: rgba(config.$d-gray, .3) 1px solid;
-              &.is-half{
-                  width: 100%;
-                  @include config.mq(sm){
-                      width: 50%;
-                  }
-                  @include config.mq(md){
-                      width: 50%;
-                  }
-                  @include config.mq(lg){
-                      width: 50%;
-                  }
-              }
-          }
-          >p{
-              padding-top: .35em;
-              font-size: .77em;
-              color: config.$d-gray;
-          }
+    .form_box{
+        margin: 0 auto 2em;
+        &:last-of-type{
+            margin: 0 auto 3em;
+        }
+        dt{
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        dd{
 
-          textarea{
-              display: block;
-              background: config.$ll-gray;
-              border-radius: 3px;
-              width: 100%;
-              height: 10em;
-              border: rgba(config.$d-gray, .3) 1px solid;
-              padding: .4em .6em;
-          };
-      }
+            input{
+                display: block;
+                background: config.$ll-gray;
+                border-radius: 3px;
+                width: 50%;
+                padding: .4em .6em;
+                border: rgba(config.$d-gray, .3) 1px solid;
+                &.is-half{
+                    width: 100%;
+                    @include config.mq(sm){
+                        width: 50%;
+                    }
+                    @include config.mq(md){
+                        width: 50%;
+                    }
+                    @include config.mq(lg){
+                        width: 50%;
+                    }
+                }
+                &.is-required{
+                    border: 1px solid config.$red;
+                    background: rgba(config.$red, .1);
+                }
+            }
+            >p{
+                padding-top: .35em;
+                font-size: .77em;
+                color: config.$d-gray;
+            }
+
+            textarea{
+                display: block;
+                background: config.$ll-gray;
+                border-radius: 3px;
+                width: 100%;
+                height: 10em;
+                border: rgba(config.$d-gray, .3) 1px solid;
+                padding: .4em .6em;
+                &.is-required{
+                    border: 1px solid config.$red;
+                    background: rgba(config.$red, .1);
+                }
+            };
+        }
 
 
-      .required{
-          display: inline-block;
-          padding: .1em .5em;
-          border-radius: 5px;
-          color: config.$white;
-          font-size: .72em;
-          background-color: config.$red;
-          margin-right: .7em;
-      }
+        .required{
+            display: inline-block;
+            padding: .1em .5em;
+            border-radius: 5px;
+            color: config.$white;
+            font-size: .72em;
+            background-color: config.$red;
+            margin-right: .7em;
+        }
 
-      .non-required{
-          display: inline-block;
-          padding: .1em .5em;
-          border-radius: 5px;
-          font-size: .72em;
-          background-color: config.$l-gray;
-          margin-right: .7em;
-      }
-  }
+        .non-required{
+            display: inline-block;
+            padding: .1em .5em;
+            border-radius: 5px;
+            font-size: .72em;
+            background-color: config.$l-gray;
+            margin-right: .7em;
+        }
+    }
 
   // .btn{
   //     @include config.btnSlideAnime(config.$m-black);
   // }
 
-  .is-required{
-    color: config.$red!important;
-  }
+
+
+    .form-errorMsg{
+        transition: 0.3s;
+        &.is-required{
+            color: config.$red!important;
+        }
+    } 
 }
