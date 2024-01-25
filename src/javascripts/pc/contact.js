@@ -49,7 +49,7 @@ class Hoge {
     let isTelValid = false;
     let isTextareaValid = true;
 
-    
+
     let requiredClass = 'is-required'
 
 
@@ -101,7 +101,7 @@ class Hoge {
 
     // 電話番号のバリデーション
     const telInputCheck = ()=>{
-      const phoneRegex = /^\d+$/;
+      const phoneRegex = /^0[-\d]{9,12}$/;
       telInput.addEventListener('blur',(e)=>{
         const telVal = e.target.value.replace(/[- \s]/g, '');
         if (!telVal == "" && !phoneRegex.test(telVal)) {
